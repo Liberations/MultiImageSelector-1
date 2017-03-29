@@ -158,6 +158,10 @@ public class MultiImageSelectorActivity extends AppCompatActivity
 
     @Override
     public void onImageUnselected(String path) {
+        // resultList sometimes does not init fix NullPotinterException
+        if(resultList==null){
+            resultList = new ArrayList<>();
+        }
         if(resultList.contains(path)){
             resultList.remove(path);
         }
